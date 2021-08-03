@@ -1,0 +1,25 @@
+
+// TODO Dados  + Metodos Doador
+PixAdm
+Nome 
+Email
+anonimato
+Qta moeda 
+valor da moeda
+id_instituição
+id_comprovante
+pixPendente
+
+
+// TODO Dados intituição
+id
+Nome
+Carteira
+
+
+// TODO dados imagem comprovante 
+id 
+url
+name
+
+
