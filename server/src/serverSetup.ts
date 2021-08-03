@@ -1,4 +1,6 @@
 import express from "express";
+import {router} from "@src/routes"
+
 
 export class serverSetup {
   private app = express();
@@ -6,6 +8,7 @@ export class serverSetup {
 
   private setupExpress(): void {
     this.app.use(express.json());
+    this.app.use(router);
   }
 
   public init(): void {
