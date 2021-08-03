@@ -23,3 +23,8 @@ url
 name
 
 
+Regras : 
+
+  - O doador não pode mudar o valor da moeda.
+  - O valor da moeda tem que ser exibida conforme o sistema.
+  - 
