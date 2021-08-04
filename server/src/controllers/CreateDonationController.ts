@@ -4,12 +4,12 @@ import { IDonation } from "@src/interfaces/DonationInterface";
 class CreateDonationController {
   async handle(req: Request, res: Response): Promise<void> {
     try {
-      const dontaion = new IDonation(req.body);
+      const donation :IDonation = (req.body);
+      console.log("Doador", donation);
     } catch (error) {
       console.log("error", error);
     }
 
-    console.log("Doador", dontaionT);
   }
 }
 
