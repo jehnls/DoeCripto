@@ -1,7 +1,7 @@
 export interface IDonation {
   id?: string;
   addresseePix: string;
-  anonymousDonation: boolean;
+  isAnonymousDonation: boolean;
   name?: string;
   email?: string;
   coinQuantity: number;

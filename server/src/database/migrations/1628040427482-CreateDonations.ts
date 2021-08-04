@@ -1,11 +1,52 @@
-import {MigrationInterface, QueryRunner} from "typeorm";
+import { Column, MigrationInterface, QueryRunner, Table } from "typeorm";
 
 export class CreateDonations1628040427482 implements MigrationInterface {
+  public async up(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.createTable(
+      new Table({
+        name: "donations",
+        columns: [
+          {
+            name: "id",
+            type: "uuid",
+            isPrimary: true,
+          },
+          {
+            name: "isAnonymousDonation",
+            type: "boolean",
+            default: false,
+          },
+          {
+            name: "name",
+            type: "varchar",
+          },
+          {
+            name: "email",
+            type: "varchar",
+          },
+          {
+            name: "quantityCoin",
+            type: "number",
+          },
+          {
+            name: "created_at",
+            type: "timestamp",
+            default: "now()",
+          },
+          {
+            name: "updated_at",
+            type: "timestamp",
+            default: "mow()",
+          },
 
-    public async up(queryRunner: QueryRunner): Promise<void> {
-    }
+          // institution
+          //proofFile
+        ],
+      })
+    );
+  }
 
-    public async down(queryRunner: QueryRunner): Promise<void> {
-    }
-
+  public async down(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.dropTable("donations");
+  }
 }
