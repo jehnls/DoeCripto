@@ -1,4 +1,15 @@
 
+// TODO entidade donatios
+donations {  
+  "id",
+  "isAnonymousDonation",
+  "name",  
+  "email", 
+  "quantityCoin",      
+  "created_at",              
+  "updated_at",
+}
+
 // TODO Dados  + Metodos Doador
 PixAdm
 Nome 
@@ -20,9 +31,6 @@ Carteira
 // TODO dados imagem comprovante 
 id 
 url
-name
-
-
 Regras : 
 
   - O doador não pode mudar o valor da moeda.
