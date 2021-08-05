@@ -1,6 +1,14 @@
+//TODO Criar Donations ()
+  [x] Migrations
+  [x] Entidade
+  [x] Repositório
+  [x] Serviço
+  [x] Controller
 
-// TODO entidade donatios
-donations {  
+
+
+// TODO entidade donations
+donations entity {  
   "id",
   "isAnonymousDonation",
   "name",  
@@ -9,8 +17,19 @@ donations {
   "created_at",              
   "updated_at",
 }
+ IDonation {
+  id?: string;
+  institutionId: string;
+  isAnonymousDonation: boolean;
+  name?: string;
+  email?: string;
+  coinQuantity: number;
+  currencyValue: number;
+  totalValue: number;
+  addresseePix: string;
+ }
 
-// TODO Dados  + Metodos Doador
+// TODO Dados  + Métodos Doador
 PixAdm
 Nome 
 Email
@@ -22,7 +41,7 @@ id_comprovante
 pixPendente
 
 
-// TODO Dados intituição
+// TODO Dados instituição
 id
 Nome
 Carteira
@@ -31,8 +50,11 @@ Carteira
 // TODO dados imagem comprovante 
 id 
 url
+
+
 Regras : 
 
   - O doador não pode mudar o valor da moeda.
   - O valor da moeda tem que ser exibida conforme o sistema.
-  - 
+  - Tem que fazer a tratamento, caso o doador venha preenchido com
+  nome e email e obrigado o campo anonimato ser falso.
