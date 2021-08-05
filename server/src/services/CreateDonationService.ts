@@ -7,12 +7,21 @@ class CreateDonationService {
   async execute(donationParam: IDonation): Promise<Donation> {
     const donationRepository = getCustomRepository(DonationsRepository);
 
-    const donation = donationRepository.create(donationParam);
+    const { isAnonymousDonation, name, email, coinQuantity } = donationParam;
+    try {
+      const donation = donationRepository.create({
+        isAnonymousDonation,
+        name,
+        email,
+        quantityCoin: coinQuantity,
+      });
 
-    if (donation) {
-      await donationRepository.save(donation);
-
-      return donation;
+      if (donation) {
+        await donationRepository.save(donation);
+        return donation;
+      }
+    } catch (err) {
+      return err;
     }
   }
 }
