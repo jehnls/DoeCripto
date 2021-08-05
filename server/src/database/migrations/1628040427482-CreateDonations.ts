@@ -19,10 +19,12 @@ export class CreateDonations1628040427482 implements MigrationInterface {
           {
             name: "name",
             type: "varchar",
+            isNullable: true,
           },
           {
             name: "email",
             type: "varchar",
+            isNullable: true,
           },
           {
             name: "quantityCoin",
