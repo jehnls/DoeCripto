@@ -7,45 +7,48 @@ import { CreateQrCodePixService } from "./CreateQrCodePixService";
 const createQrCodePixService = new CreateQrCodePixService();
 
 class CreateDonationService {
-  async execute(donationParam: IDonation): Promise<void> {
+  async execute(donationParam: IDonation): Promise<any> {
     const donationRepository = getCustomRepository(DonationsRepository);
 
     const {
-      isAnonymousDonation,
+      isAnonymousDonation, 
       name,
       email,
-      coinQuantity,
+      quantityCoin,
       currencyValue,
       totalValue,
       institutionId,
     } = donationParam;
 
     const personsKeyReceiveValue = "71cdf9ba-c695-4e3c-b010-abb521a3f1be";
+
     const createCharge = await createQrCodePixService.createCharge(
       totalValue,
       personsKeyReceiveValue
     );
+
     const createQrcode = await createQrCodePixService.generateQrCode(
       createCharge.data.loc.id
     );
 
-    console.log("imagemQrcode", createQrcode);
+    try {
+      const donation = donationRepository.create({
+        isAnonymousDonation,
+        name,
+        email,
+        quantityCoin: 2,
+      });
 
-    // try {
-    //   const donation = donationRepository.create({
-    //     isAnonymousDonation,
-    //     name,
-    //     email,
-    //     quantityCoin: coinQuantity,
-    //   });
+      if(donation) {
 
-    //   if (donation) {
-    //     await donationRepository.save(donation);
-    //     return donation;
-    //   }
-    // } catch (err) {
-    //   return err;
-    // }
+        await donationRepository.save(donation);
+        let donationWithQrcode = { donation, createQrcode};
+        return donationWithQrcode;
+      }
+    
+    } catch (err) {
+      return err;
+    }
   }
 }
 
