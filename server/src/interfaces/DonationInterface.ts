@@ -4,8 +4,8 @@ export interface IDonation {
   isAnonymousDonation: boolean;
   name?: string;
   email?: string;
-  coinQuantity: number;
-  currencyValue: number;
-  totalValue: number;
+  coinQuantity: string;
+  currencyValue: string;
+  totalValue: string;
   addresseePix: string;
 }

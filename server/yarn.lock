@@ -326,6 +326,13 @@ aws4@^1.8.0:
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.11.0.tgz#d61f46d83b2519250e2784daf5b09479a8b41c59"
   integrity sha512-xh1Rl34h6Fi1DC2WWKfxUTVqRsNnr6LsKz2+hfwDxQJWmrx8+c7ylaqBMcHfl1U1r2dsifOvKX3LQuLNZ+XSvA==
 
+axios@^0.21.1:
+  version "0.21.1"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.21.1.tgz#22563481962f4d6bde9a76d516ef0e5d3c09b2b8"
+  integrity sha512-dKQiRHxGD9PPRIUNIWvZhPTPpl1rf/OxTYKsqKUDjBwYylTvV7SjSHJb9ratfyzM6wCdLCOYLzs73qpg5c4iGA==
+  dependencies:
+    follow-redirects "^1.10.0"
+
 balanced-match@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.2.tgz#e83e3a7e3f300b34cb9d87f615fa0cbf357690ee"
@@ -671,6 +678,11 @@ doctrine@^3.0.0:
   integrity sha512-yS+Q5i3hBf7GBkd4KG8a7eBNNWNGLTaEwwYWUijIYM7zrlYDM0BFXHjjPWlWZ1Rg7UaddZeIDmi9jF3HmqiQ2w==
   dependencies:
     esutils "^2.0.2"
+
+dotenv@^10.0.0:
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-10.0.0.tgz#3d4227b8fb95f81096cdd2b66653fb2c7085ba81"
+  integrity sha512-rlBi9d8jpv9Sf1klPjNfFAuWDjKLwTIJJ/VxtoTwIR6hnZxcEOQCZg2oIL3MWBYw5GpUDKOEnND7LXTbIpQ03Q==
 
 dotenv@^8.2.0:
   version "8.6.0"
@@ -1072,6 +1084,11 @@ flatted@^3.1.0:
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-3.2.2.tgz#64bfed5cb68fe3ca78b3eb214ad97b63bedce561"
   integrity sha512-JaTY/wtrcSyvXJl4IMFHPKyFur1sE9AUqc0QnhOaJ0CxHtAoIV8pYDzeEfAaNEtGkOfq4gr3LBFmdXW5mOQFnA==
+
+follow-redirects@^1.10.0:
+  version "1.14.1"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.14.1.tgz#d9114ded0a1cfdd334e164e6662ad02bfd91ff43"
+  integrity sha512-HWqDgT7ZEkqRzBvc2s64vSZ/hfOceEol3ac/7tKwzuvEyWx3/4UegXh5oBOIotkGsObyk3xznnSRVADBgWSQVg==
 
 forever-agent@~0.6.1:
   version "0.6.1"
