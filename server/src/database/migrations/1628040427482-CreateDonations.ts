@@ -38,7 +38,7 @@ export class CreateDonations1628040427482 implements MigrationInterface {
           {
             name: "updated_at",
             type: "timestamp",
-            default: "mow()",
+            default: "now()",
           },
 
           // institution
