@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { IDonation } from "@src/interfaces/DonationInterface";
-import { CreateDonationService } from "@src/services/CreateDonationService";
+import { CreateDonationService } from "@src/services/DonationService";
 
 const createDonationService = new CreateDonationService();
 class CreateDonationController {

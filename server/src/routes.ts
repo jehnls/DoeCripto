@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { CreateDonationController } from "./controllers/CreateDonationController";
-import { CreateInstitutionController } from "./controllers/CreateInstitutionController";
+import { CreateDonationController } from "@controllers/DonationController";
+import { CreateInstitutionController } from "@controllers/InstitutionController";
 import { WelcomeController } from "./controllers/WelcomeController";
 
 const router = Router();

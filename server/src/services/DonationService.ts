@@ -2,7 +2,7 @@ import { IDonation } from "@interfaces/DonationInterface";
 import { getCustomRepository, UsingJoinColumnIsNotAllowedError } from "typeorm";
 import { DonationsRepository } from "@src/repositories/DonationsRepository";
 import { Donation } from "@src/entities/Donation";
-import { CreateQrCodePixService } from "./CreateQrCodePixService";
+import { CreateQrCodePixService } from "./QrCodePixService";
 
 const createQrCodePixService = new CreateQrCodePixService();
 
@@ -11,7 +11,7 @@ class CreateDonationService {
     const donationRepository = getCustomRepository(DonationsRepository);
 
     const {
-      isAnonymousDonation, 
+      isAnonymousDonation,
       name,
       email,
       quantityCoin,
@@ -39,13 +39,11 @@ class CreateDonationService {
         quantityCoin: 2,
       });
 
-      if(donation) {
-
+      if (donation) {
         await donationRepository.save(donation);
-        let donationWithQrcode = { donation, createQrcode};
+        let donationWithQrcode = { donation, createQrcode };
         return donationWithQrcode;
       }
-    
     } catch (err) {
       return err;
     }

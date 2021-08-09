@@ -1,4 +1,4 @@
-import { CreateInstitutionService } from "@src/services/CreateInstitutionService";
+import { CreateInstitutionService } from "@src/services/InstitutionService";
 import { Request, Response } from "express";
 
 class CreateInstitutionController {
@@ -11,7 +11,7 @@ class CreateInstitutionController {
       const institutionSaved = await createInstitutionService.execute(
         institution
       );
-      return res.json(200).send(institution);
+      return res.json(200).send(institutionSaved);
     } catch (err) {}
   }
 }
