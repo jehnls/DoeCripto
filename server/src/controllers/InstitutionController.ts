@@ -11,8 +11,10 @@ class CreateInstitutionController {
       const institutionSaved = await createInstitutionService.execute(
         institution
       );
-      return res.json(200).send(institutionSaved);
-    } catch (err) {}
+      res.status(200).json(institutionSaved);
+    } catch (err) {
+      res.status(400).json(err);
+    }
   }
 }
 

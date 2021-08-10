@@ -1,4 +1,4 @@
-import { Column, Entity, PrimaryColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, PrimaryColumn } from "typeorm";
 import { v4 as uuid } from "uuid";
 
 @Entity("institutions")
@@ -18,11 +18,11 @@ class Institution {
   @Column()
   wallet: string;
 
-  @Column()
+  @CreateDateColumn()
   created_at: Date;
 
-  @Column()
-  update_at: Date;
+  @CreateDateColumn()
+  updated_at: Date;
 
   constructor() {
     if (!this.id) {
