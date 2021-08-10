@@ -1,5 +1,13 @@
-import { Column, CreateDateColumn, Entity, PrimaryColumn } from "typeorm";
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  JoinColumn,
+  OneToMany,
+  PrimaryColumn,
+} from "typeorm";
 import { v4 as uuid } from "uuid";
+import { Donation } from "@entities/Donation";
 
 @Entity("institutions")
 class Institution {
@@ -17,6 +25,10 @@ class Institution {
 
   @Column()
   wallet: string;
+
+  @JoinColumn({ name: "donationId" })
+  @OneToMany(() => Donation, (donation) => donation.institutionId)
+  donationId: Donation[];
 
   @CreateDateColumn()
   created_at: Date;

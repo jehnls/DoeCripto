@@ -31,6 +31,10 @@ export class CreateDonations1628040427482 implements MigrationInterface {
             type: "number",
           },
           {
+            name: "institution_id",
+            type: "uuid",
+          },
+          {
             name: "created_at",
             type: "timestamp",
             default: "now()",
@@ -40,9 +44,16 @@ export class CreateDonations1628040427482 implements MigrationInterface {
             type: "timestamp",
             default: "now()",
           },
-
-          // institution
-          //proofFile
+        ],
+        foreignKeys: [
+          {
+            name: "FKInstitution",
+            referencedTableName: "institutions",
+            referencedColumnNames: ["id"],
+            columnNames: ["donation_id"],
+            onDelete: "SET NULL",
+            onUpdate: "SET NULL",
+          },
         ],
       })
     );
