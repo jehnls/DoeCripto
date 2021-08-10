@@ -7,7 +7,7 @@ import {
   PrimaryColumn,
 } from "typeorm";
 import { v4 as uuid } from "uuid";
-import { Institution } from "@entities/Institution";
+import { Institution } from "./Institution";
 
 @Entity("donations")
 class Donation {
@@ -27,7 +27,7 @@ class Donation {
   quantityCoin: number;
 
   @JoinColumn({ name: "institution_id" })
-  @ManyToOne(() => Institution, (institutionId) => institutionId.donationId)
+  @ManyToOne(() => Institution, (institution) => institution.id)
   institutionId: Institution;
 
   @CreateDateColumn()

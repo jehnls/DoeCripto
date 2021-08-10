@@ -50,7 +50,7 @@ export class CreateDonations1628040427482 implements MigrationInterface {
             name: "FKInstitution",
             referencedTableName: "institutions",
             referencedColumnNames: ["id"],
-            columnNames: ["donation_id"],
+            columnNames: ["institution_id"],
             onDelete: "SET NULL",
             onUpdate: "SET NULL",
           },
