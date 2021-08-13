@@ -1,7 +1,7 @@
 import CoinGecko from "coingecko-api";
 
 class MarginGainService {
-  async get(value: number) {
+  async get(value: number): Promise<string> {
     const coinGecko = new CoinGecko();
 
     const valueCoin = await coinGecko.simple.price({
@@ -19,7 +19,7 @@ class MarginGainService {
     let valuePercent = (100 - value) / 100;
     let marginGain = priceCoin / valuePercent;
 
-    return marginGain;
+    return marginGain.toFixed(2).toString();
   }
 }
 
