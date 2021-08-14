@@ -3,8 +3,10 @@ import { getCustomRepository } from "typeorm";
 import { DonationsRepository } from "@src/repositories/DonationsRepository";
 import { CreateQrCodePixService } from "./QrCodePixService";
 import { InstitutionRepository } from "@src/repositories/InstitutionRepository";
+import { MarginGainService } from "./MarginGainService";
 
 const createQrCodePixService = new CreateQrCodePixService();
+const marginGainService = new MarginGainService();
 
 class CreateDonationService {
   async execute(donationParam: IDonation): Promise<any> {
@@ -16,22 +18,25 @@ class CreateDonationService {
       name,
       email,
       quantityCoin,
-      currencyValue,
-      totalValue,
+      //currencyValue,
+      //totalValue,
       //institutionId,
     } = donationParam;
 
-    const personsKeyReceiveValue = "71cdf9ba-c695-4e3c-b010-abb521a3f1be";
+    const adminsMarginGain = await marginGainService.get(20);
+    let donationTotalValue =
+      parseFloat(adminsMarginGain) * parseFloat(quantityCoin);
     const institutionId = "f90c5875-2e6c-4023-be51-d9ba5f4be4a5";
+    const personKeyReceiveValue = "71cdf9ba-c695-4e3c-b010-abb521a3f1be";
 
     const institution = await institutionRepository.findOne(institutionId);
 
     const createCharge = await createQrCodePixService.createCharge(
-      totalValue,
-      personsKeyReceiveValue
+      donationTotalValue.toString(),
+      personKeyReceiveValue
     );
 
-    const createQrcode = await createQrCodePixService.generateQrCode(
+    const createQRCode = await createQrCodePixService.generateQrCode(
       createCharge.data.loc.id
     );
 
@@ -46,8 +51,8 @@ class CreateDonationService {
 
       if (donation) {
         await donationRepository.save(donation);
-        let donationWithQrcode = { donation, createQrcode };
-        return donationWithQrcode;
+        let donationWithQRCode = { donation, createQRCode };
+        return donationWithQRCode;
       }
     } catch (err) {
       console.log(err);
