@@ -2,8 +2,8 @@ import { IInstitution } from "@src/interfaces/InstitutionInterface";
 import { InstitutionRepository } from "@src/repositories/InstitutionRepository";
 import { getCustomRepository } from "typeorm";
 
-class CreateInstitutionService {
-  async execute(institutionParam: IInstitution) {
+class InstitutionService {
+  async create(institutionParam: IInstitution) {
     const institutionRepository = getCustomRepository(InstitutionRepository);
 
     const institution = institutionRepository.create(institutionParam);
@@ -21,4 +21,4 @@ class CreateInstitutionService {
   }
 }
 
-export { CreateInstitutionService };
+export { InstitutionService };

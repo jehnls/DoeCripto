@@ -1,15 +1,15 @@
 import { Request, Response } from "express";
 import { IDonation } from "@src/interfaces/DonationInterface";
-import { CreateDonationService } from "@src/services/DonationService";
+import { DonationService } from "@src/services/DonationService";
 
-const createDonationService = new CreateDonationService();
-class CreateDonationController {
-  async handle(req: Request, res: Response): Promise<void> {
+const donationService = new DonationService();
+class DonationController {
+  async create(req: Request, res: Response): Promise<void> {
     const objDonationRequest = req.body;
 
     try {
       const donation: IDonation = { ...objDonationRequest };
-      const donationSave = await createDonationService.execute(donation);
+      const donationSave = await donationService.create(donation);
       res.status(200).send(donationSave);
     } catch (error) {
       console.log("error", error);
@@ -18,4 +18,4 @@ class CreateDonationController {
   }
 }
 
-export { CreateDonationController };
+export { DonationController };

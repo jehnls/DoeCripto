@@ -8,8 +8,8 @@ import { MarginGainService } from "./MarginGainService";
 const createQrCodePixService = new CreateQrCodePixService();
 const marginGainService = new MarginGainService();
 
-class CreateDonationService {
-  async execute(donationParam: IDonation): Promise<any> {
+class DonationService {
+  async create(donationParam: IDonation): Promise<any> {
     const donationRepository = getCustomRepository(DonationsRepository);
     const institutionRepository = getCustomRepository(InstitutionRepository);
 
@@ -20,13 +20,12 @@ class CreateDonationService {
       quantityCoin,
       //currencyValue,
       //totalValue,
-      //institutionId,
+      institutionId,
     } = donationParam;
 
     const adminsMarginGain = await marginGainService.get(20);
     let donationTotalValue =
       parseFloat(adminsMarginGain) * parseFloat(quantityCoin);
-    const institutionId = "f90c5875-2e6c-4023-be51-d9ba5f4be4a5";
     const personKeyReceiveValue = "71cdf9ba-c695-4e3c-b010-abb521a3f1be";
 
     const institution = await institutionRepository.findOne(institutionId);
@@ -61,4 +60,4 @@ class CreateDonationService {
   }
 }
 
-export { CreateDonationService };
+export { DonationService };
