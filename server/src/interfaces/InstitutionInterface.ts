@@ -4,4 +4,5 @@ export interface IInstitution {
   cnpj: string;
   site: string;
   wallet: string;
+  category: string;
 }
