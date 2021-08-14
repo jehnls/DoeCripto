@@ -4,6 +4,7 @@ import { DonationsRepository } from "@src/repositories/DonationsRepository";
 import { CreateQrCodePixService } from "./QrCodePixService";
 import { InstitutionRepository } from "@src/repositories/InstitutionRepository";
 import { MarginGainService } from "./MarginGainService";
+import { AppError } from "@src/errors/AppError";
 
 const createQrCodePixService = new CreateQrCodePixService();
 const marginGainService = new MarginGainService();
@@ -29,6 +30,13 @@ class DonationService {
     const personKeyReceiveValue = "71cdf9ba-c695-4e3c-b010-abb521a3f1be";
 
     const institution = await institutionRepository.findOne(institutionId);
+
+    if (!institution) {
+      console.log("InstitutionId is empty");
+      throw new AppError(
+        "Erro interno com propriedade do banco de dados, contate o administrador"
+      );
+    }
 
     const createCharge = await createQrCodePixService.createCharge(
       donationTotalValue.toString(),
