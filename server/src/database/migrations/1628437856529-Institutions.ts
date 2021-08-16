@@ -28,6 +28,10 @@ export class Institutions1628437856529 implements MigrationInterface {
             type: "varchar",
           },
           {
+            name: "category_id",
+            type: "uuid",
+          },
+          {
             name: "created_at",
             type: "timestamp",
             default: "now()",
@@ -36,6 +40,16 @@ export class Institutions1628437856529 implements MigrationInterface {
             name: "updated_at",
             type: "timestamp",
             default: "now()",
+          },
+        ],
+        foreignKeys: [
+          {
+            name: "FKCategory",
+            referencedTableName: "categories",
+            referencedColumnNames: ["id"],
+            columnNames: ["category_id"],
+            onDelete: "SET NULL",
+            onUpdate: "SET NULL",
           },
         ],
       })
