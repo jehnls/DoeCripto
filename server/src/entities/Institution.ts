@@ -26,9 +26,9 @@ class Institution {
   @Column()
   wallet: string;
 
-  @OneToOne(() => Category)
   @JoinColumn()
-  category: Category;
+  @OneToOne(() => Category)
+  category_id: Category;
 
   @CreateDateColumn()
   created_at: Date;

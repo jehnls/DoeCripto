@@ -1,16 +1,26 @@
-import { CreateInstitutionService } from "@src/services/InstitutionService";
+import { Category } from "@src/entities/Category";
+import { AppError } from "@src/errors/AppError";
+import { CategoryRepository } from "@src/repositories/CategoryRepository";
+import { InstitutionService } from "@src/services/InstitutionService";
 import { Request, Response } from "express";
+import { getCustomRepository } from "typeorm";
 
-class CreateInstitutionController {
-  async handle(req: Request, res: Response): Promise<any> {
-    const createInstitutionService = new CreateInstitutionService();
+class InstitutionController {
+  async create(req: Request, res: Response): Promise<any> {
+    const institutionService = new InstitutionService();
 
-    const institution = req.body;
+    const { name, cnpj, site, category, wallet } = req.body;
+
+    const institution = {
+      name,
+      cnpj,
+      site,
+      wallet,
+      category,
+    };
 
     try {
-      const institutionSaved = await createInstitutionService.execute(
-        institution
-      );
+      const institutionSaved = await institutionService.create(institution);
       res.status(200).json(institutionSaved);
     } catch (err) {
       res.status(400).json(err);
@@ -18,4 +28,4 @@ class CreateInstitutionController {
   }
 }
 
-export { CreateInstitutionController };
+export { InstitutionController };

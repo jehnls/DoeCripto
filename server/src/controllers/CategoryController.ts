@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import { AppError } from "@src/errors/AppError";
 import { CategoryService } from "@services/CategoryService";
 
 class CategoryController {
@@ -6,9 +7,13 @@ class CategoryController {
     const categoryService = new CategoryService();
     const { name } = req.body;
 
-    const categoty = await categoryService.create(name.toUpperCase());
+    if (!name) {
+      throw new AppError("O campo categoria esta vazio");
+    }
 
-    res.status(200).json(categoty);
+    const category = await categoryService.create(name.toUpperCase());
+
+    res.status(200).json(category);
   }
 }
 

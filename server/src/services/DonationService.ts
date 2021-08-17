@@ -4,12 +4,13 @@ import { DonationsRepository } from "@src/repositories/DonationsRepository";
 import { CreateQrCodePixService } from "./QrCodePixService";
 import { InstitutionRepository } from "@src/repositories/InstitutionRepository";
 import { MarginGainService } from "./MarginGainService";
+import { AppError } from "@src/errors/AppError";
 
 const createQrCodePixService = new CreateQrCodePixService();
 const marginGainService = new MarginGainService();
 
-class CreateDonationService {
-  async execute(donationParam: IDonation): Promise<any> {
+class DonationService {
+  async create(donationParam: IDonation): Promise<any> {
     const donationRepository = getCustomRepository(DonationsRepository);
     const institutionRepository = getCustomRepository(InstitutionRepository);
 
@@ -20,16 +21,22 @@ class CreateDonationService {
       quantityCoin,
       //currencyValue,
       //totalValue,
-      //institutionId,
+      institutionId,
     } = donationParam;
 
     const adminsMarginGain = await marginGainService.get(20);
     let donationTotalValue =
       parseFloat(adminsMarginGain) * parseFloat(quantityCoin);
-    const institutionId = "f90c5875-2e6c-4023-be51-d9ba5f4be4a5";
     const personKeyReceiveValue = "71cdf9ba-c695-4e3c-b010-abb521a3f1be";
 
     const institution = await institutionRepository.findOne(institutionId);
+
+    if (!institution) {
+      console.log("InstitutionId is empty");
+      throw new AppError(
+        "Erro interno com propriedade do banco de dados, contate o administrador"
+      );
+    }
 
     const createCharge = await createQrCodePixService.createCharge(
       donationTotalValue.toString(),
@@ -61,4 +68,4 @@ class CreateDonationService {
   }
 }
 
-export { CreateDonationService };
+export { DonationService };
