@@ -1,6 +1,27 @@
 ----------------------------------------------------
 //                  ATIVIDADES 
 
+//TODO Refatorar o código clean code
+
+// TODO fazer os metodos para alterar e excluir para as outras entidade 
+
+//TODO fazer tratamento dos dados com tup
+
+//TODO Fazer entidade endereço para instituto {
+  cep,
+  rua,
+  bairro,
+  complemento,
+  estado,
+  uf
+}
+
+//TODO Fazer entidade contato para instituição {
+  telefone principal,
+  telefone segundario,
+  email
+}
+
 // TODO dados imagem comprovante (Verificar se vai ser necessario)
 id 
 url
@@ -15,12 +36,15 @@ Regras :
 ----------------------------------------------------
 //                   FAZENDO
 
-//TODO Criar categoria da entidade
+
 
 
 
 ----------------------------------------------------
 //                    FEITO
+
+
+//TODO Criar categoria da entidade
 
 //TODO Criar Donations ()
   [x] Migrations
