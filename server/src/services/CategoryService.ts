@@ -7,9 +7,9 @@ class CategoryService {
 
     const categoryAlreadyExist = categoryRepository.findOne({ name: name });
 
-    if (categoryAlreadyExist) {
-      return { message: "category already exists" };
-    }
+    // if (categoryAlreadyExist) {
+    //   return { message: "category already exists" };
+    // }
 
     const category = categoryRepository.create({ name: name });
 

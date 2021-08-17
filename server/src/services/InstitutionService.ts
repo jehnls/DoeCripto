@@ -11,9 +11,11 @@ class InstitutionService {
 
     const { name, cnpj, site, wallet, category } = institutionParam;
 
-    const findCategory = await categoryRepository.find({
+    const findCategory = await categoryRepository.findOne({
       where: { name: category },
     });
+
+    console.log(findCategory);
 
     // if (!foundCategory) {
     //   throw new AppError(
@@ -26,6 +28,7 @@ class InstitutionService {
       cnpj,
       site,
       wallet,
+      category_id: findCategory,
     });
 
     try {

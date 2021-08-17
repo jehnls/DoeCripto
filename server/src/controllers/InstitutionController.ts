@@ -16,7 +16,7 @@ class InstitutionController {
       cnpj,
       site,
       wallet,
-      category,
+      category: category.toUpperCase(),
     };
 
     try {

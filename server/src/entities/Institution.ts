@@ -26,7 +26,7 @@ class Institution {
   @Column()
   wallet: string;
 
-  @JoinColumn()
+  @JoinColumn({ name: "category_id" })
   @OneToOne(() => Category)
   category_id: Category;
 
