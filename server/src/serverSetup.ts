@@ -1,10 +1,9 @@
 import express from "express";
-import {router} from "@src/routes"
-
+import { router } from "@src/routes";
 
 export class serverSetup {
   private app = express();
-  constructor(private port = 3000) {}
+  constructor(private port = 3001) {}
 
   private setupExpress(): void {
     this.app.use(express.json());
