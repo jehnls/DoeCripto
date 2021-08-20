@@ -26,7 +26,16 @@
 id 
 url
 
+Regras : Doação processado ou não e a instituição.
+
+usuario adm processado ou não a ch
+
 Regras : 
+
+//TODO Obrigatorio
+Colocar campo hash para a doação/ 
+Status de pagamento (Doação)
+Status do usuario se ele pago ou não o valor para instituição.
 
   - O doador não pode mudar o valor da moeda.
   - O valor da moeda tem que ser exibida conforme o sistema.

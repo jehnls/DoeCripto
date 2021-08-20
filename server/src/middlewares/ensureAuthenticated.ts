@@ -16,12 +16,14 @@ export function ensureAuthenticated(
     return res.status(401).end();
   }
 
-  const [, token] = authToken.split("");
+  console.log(authToken);
+
+  const [, token] = authToken.split(" ");
 
   try {
     const { sub } = verify(token, "") as IPayload;
 
-    // req.user_id = sub;
+    req.user_id = sub;
 
     return next();
   } catch (err) {
