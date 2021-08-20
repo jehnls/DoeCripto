@@ -1,10 +1,10 @@
 import { Router } from "express";
-import { DonationController } from "@controllers/DonationController";
-import { InstitutionController } from "@controllers/InstitutionController";
+import { DonationController } from "./controllers/DonationController";
+import { InstitutionController } from "./controllers/InstitutionController";
 import { WelcomeController } from "./controllers/WelcomeController";
-import { CategoryController } from "@controllers/CategoryController";
+import { CategoryController } from "./controllers/CategoryController";
 import { UserController } from "./controllers/UserController";
-import { AuthenticateUserController } from "@controllers/AuthenticateUserController";
+import { AuthenticateUserController } from "./controllers/AuthenticateUserController";
 import { ensureAuthenticated } from "./middlewares/ensureAuthenticated";
 import { ensureAdmin } from "./middlewares/ensureAdmin";
 
