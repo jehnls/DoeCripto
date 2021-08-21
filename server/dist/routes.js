@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.router = void 0;
 var express_1 = require("express");
 var DonationController_1 = require("./controllers/DonationController");
 var InstitutionController_1 = require("./controllers/InstitutionController");

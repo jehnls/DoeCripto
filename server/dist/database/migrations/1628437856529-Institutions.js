@@ -36,7 +36,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Institutions1628437856529 = void 0;
 var typeorm_1 = require("typeorm");
 var Institutions1628437856529 = /** @class */ (function () {
     function Institutions1628437856529() {

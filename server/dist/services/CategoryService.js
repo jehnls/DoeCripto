@@ -36,7 +36,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CategoryService = void 0;
 var CategoryRepository_1 = require("../repositories/CategoryRepository");
 var typeorm_1 = require("typeorm");
 var CategoryService = /** @class */ (function () {

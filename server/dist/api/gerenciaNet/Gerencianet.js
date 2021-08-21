@@ -39,22 +39,19 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.GNRequest = exports.authenticate = void 0;
 var axios_1 = __importDefault(require("axios"));
 var fs_1 = __importDefault(require("fs"));
 var path_1 = __importDefault(require("path"));
 var https_1 = __importDefault(require("https"));
-
 if (process.env.NODE_ENV !== "production") {
     require("dotenv").config();
 }
-
-var certificate = fs_1.default.readFileSync(path_1.default.resolve(__dirname, "../../../certs/" + process.env.GN_CERT ));
+var certificate = fs_1.default.readFileSync(path_1.default.resolve(__dirname, "../../../certs/" + process.env.GN_CERT));
 var agent = new https_1.default.Agent({
     pfx: certificate,
     passphrase: "",
 });
-var authenticate = function (_a) {
+exports.authenticate = function (_a) {
     var clientID = _a.clientID, clientSecret = _a.clientSecret;
     //Transformar algo em base64 em node
     var credentials = Buffer.from(clientID + ":" + clientSecret).toString("base64");
@@ -71,8 +68,7 @@ var authenticate = function (_a) {
         },
     });
 };
-exports.authenticate = authenticate;
-var GNRequest = function (credentials) { return __awaiter(void 0, void 0, void 0, function () {
+exports.GNRequest = function (credentials) { return __awaiter(void 0, void 0, void 0, function () {
     var authResponse, accessToken;
     var _a;
     return __generator(this, function (_b) {
@@ -92,4 +88,3 @@ var GNRequest = function (credentials) { return __awaiter(void 0, void 0, void 0
         }
     });
 }); };
-exports.GNRequest = GNRequest;

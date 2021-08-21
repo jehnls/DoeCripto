@@ -36,7 +36,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DonationService = void 0;
 var typeorm_1 = require("typeorm");
 var DonationsRepository_1 = require("../repositories/DonationsRepository");
 var QrCodePixService_1 = require("./QrCodePixService");

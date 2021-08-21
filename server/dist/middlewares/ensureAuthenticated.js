@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ensureAuthenticated = void 0;
 var jsonwebtoken_1 = require("jsonwebtoken");
 function ensureAuthenticated(req, res, next) {
     var authToken = req.headers.authorization;

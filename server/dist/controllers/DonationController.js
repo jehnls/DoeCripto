@@ -47,9 +47,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DonationController = void 0;
-var DonationService_1 = require("../services/DonationService");
-var donationService = new DonationService_1.DonationService();
+var DonationService_js_1 = require("../services/DonationService.js");
+var donationService = new DonationService_js_1.DonationService();
 var DonationController = /** @class */ (function () {
     function DonationController() {
     }

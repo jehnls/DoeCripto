@@ -36,7 +36,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ensureAdmin = void 0;
 var typeorm_1 = require("typeorm");
 var UsersRepositories_1 = require("../repositories/UsersRepositories");
 function ensureAdmin(req, res, next) {

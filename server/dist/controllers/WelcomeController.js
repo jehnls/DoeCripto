@@ -36,7 +36,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.WelcomeController = void 0;
 var WelcomeController = /** @class */ (function () {
     function WelcomeController() {
     }

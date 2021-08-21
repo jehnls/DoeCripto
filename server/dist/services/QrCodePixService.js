@@ -36,7 +36,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CreateQrCodePixService = void 0;
 var Gerencianet_1 = require("../api/gerenciaNet/Gerencianet");
 var reqGNAlready = Gerencianet_1.GNRequest({
     clientID: process.env.GN_CLIENT_ID,

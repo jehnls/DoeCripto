@@ -36,7 +36,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.InstitutionService = void 0;
 var CategoryRepository_1 = require("../repositories/CategoryRepository");
 var InstitutionRepository_1 = require("../repositories/InstitutionRepository");
 var typeorm_1 = require("typeorm");
