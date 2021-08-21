@@ -1,6 +1,7 @@
 import express from "express";
 import { router } from "@src/routes";
 import cors from "cors";
+import dotenv from "dotenv";
 
 export class serverSetup {
   private app = express();
@@ -17,8 +18,11 @@ export class serverSetup {
   }
 
   public start(): void {
-    this.app.listen(this.port, () => {
-      console.log("Server listening port:" + this.port);
-    });
+    if (process.env.NODE !== "production") {
+      dotenv.config();
+      this.app.listen(this.port, () => {
+        console.log("Server listening port:" + this.port || process.env.PORT);
+      });
+    }
   }
 }
