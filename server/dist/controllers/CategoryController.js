@@ -38,7 +38,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CategoryController = void 0;
 var AppError_1 = require("../errors/AppError");
-var CategoryService_1 = require("@services/CategoryService");
+var CategoryService_1 = require("../services/CategoryService");
 var CategoryController = /** @class */ (function () {
     function CategoryController() {
     }

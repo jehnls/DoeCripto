@@ -44,13 +44,12 @@ var axios_1 = __importDefault(require("axios"));
 var fs_1 = __importDefault(require("fs"));
 var path_1 = __importDefault(require("path"));
 var https_1 = __importDefault(require("https"));
+
 if (process.env.NODE_ENV !== "production") {
     require("dotenv").config();
-    console.log("Ambiente de desenvolvimento")
 }
 
-var certificate = fs_1.default.readFileSync(path_1.default.resolve(__dirname, "../../../../certs/" + process.env.GN_CERT ));
-console.log(process.env.GN_CERT);
+var certificate = fs_1.default.readFileSync(path_1.default.resolve(__dirname, "../../../certs/" + process.env.GN_CERT ));
 var agent = new https_1.default.Agent({
     pfx: certificate,
     passphrase: "",

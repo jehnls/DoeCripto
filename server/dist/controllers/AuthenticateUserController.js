@@ -37,7 +37,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthenticateUserController = void 0;
-var AuthenticateUserService_1 = require("@services/AuthenticateUserService");
+var AuthenticateUserService_1 = require("../services/AuthenticateUserService");
 var AuthenticateUserController = /** @class */ (function () {
     function AuthenticateUserController() {
     }
